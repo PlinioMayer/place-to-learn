@@ -3,9 +3,9 @@ package com.placetolearn.service;
 public class HelloWorldService {
     private String theWords;
 
-    public HelloWorldService() {}
-
-//    public HelloWorldService(AnotherService anotherService) {
+//    public HelloWorldService() {}
+//
+//    public HelloWorldService(AnotherService anotherService) throws InterruptedException {
 //        anotherService.doCrazyStuff();
 //    }
 

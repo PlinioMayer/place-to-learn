@@ -5,9 +5,9 @@ public class HelloWorldService {
 
     public HelloWorldService() {}
 
-    public HelloWorldService(AnotherService anotherService) throws InterruptedException {
-        anotherService.doCrazyStuff();
-    }
+//    public HelloWorldService(AnotherService anotherService) throws InterruptedException {
+//        anotherService.doCrazyStuff();
+//    }
 
     public void sayTheWords() {
         System.out.println(theWords);

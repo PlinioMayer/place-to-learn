@@ -21,6 +21,13 @@ dependencies {
     // Spring
     implementation("org.springframework:spring-context:5.3.16")
 
+    // Spring data JPA
+    implementation("org.springframework.data:spring-data-jpa:2.6.2")
+    implementation("org.springframework:spring-orm:5.3.16")
+    implementation("org.springframework:spring-jdbc:5.3.16")
+    implementation("com.h2database:h2:2.1.210")
+    implementation("org.hibernate:hibernate-core:5.6.7.Final")
+
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 

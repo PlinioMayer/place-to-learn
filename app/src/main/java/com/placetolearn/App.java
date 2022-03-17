@@ -9,9 +9,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("pesadelo.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("pesadelo.xml"/*, "repositories.xml"*/);
 //        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         HelloWorldService helloWorldService = context.getBean("helloWorldService", HelloWorldService.class);
         helloWorldService.sayTheWords();
+
+//        MessageRepository messageRepository = context.getBean("messageRepository", MessageRepository.class);
+//        System.out.println(messageRepository.findAll().size());
+//        Message message = new Message();
+//        message.setMessage("Hello World");
+//        messageRepository.save(message);
+//        System.out.println(messageRepository.findAll().size());
     }
 }

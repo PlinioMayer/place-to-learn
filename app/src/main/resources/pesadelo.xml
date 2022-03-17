@@ -4,12 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!--    <bean id="anotherService" class="com.placetolearn.service.AnotherService">-->
-<!--        <constructor-arg type="int" value="10" />-->
-<!--    </bean>-->
+    <bean id="anotherService" class="com.placetolearn.service.AnotherService">
+        <constructor-arg type="int" value="800" />
+    </bean>
 
     <bean id="helloWorldService" class="com.placetolearn.service.HelloWorldService">
-<!--        <constructor-arg type="com.placetolearn.service.AnotherService" ref="anotherService"/>-->
+        <constructor-arg type="com.placetolearn.service.AnotherService" ref="anotherService"/>
         <property name="theWords" value="Hello World"/>
     </bean>
 

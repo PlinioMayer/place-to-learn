@@ -3,12 +3,14 @@
  */
 package com.placetolearn;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import com.placetolearn.service.HelloWorldService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        ApplicationContext context = new ClassPathXmlApplicationContext("pesadelo.xml");
+        HelloWorldService helloWorldService = context.getBean("helloWorldService", HelloWorldService.class);
+        helloWorldService.sayTheWords();
     }
 }

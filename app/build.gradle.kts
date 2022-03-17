@@ -18,6 +18,9 @@ repositories {
 }
 
 dependencies {
+    // Spring
+    implementation("org.springframework:spring-context:5.3.16")
+
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 

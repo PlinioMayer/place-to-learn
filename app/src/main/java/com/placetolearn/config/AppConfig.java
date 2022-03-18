@@ -7,15 +7,15 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-//    @Bean
-//    public AnotherService anotherService() {
-//        return new AnotherService(10);
-//    }
-//
-//    @Bean
-//    public HelloWorldService helloWorldService(AnotherService anotherService) throws InterruptedException {
-//        HelloWorldService helloWorldService = new HelloWorldService(anotherService);
-//        helloWorldService.setTheWords("Hello World");
-//        return helloWorldService;
-//    }
+    @Bean
+    public AnotherService anotherService() {
+        return new AnotherService(10);
+    }
+
+    @Bean
+    public HelloWorldService helloWorldService(AnotherService anotherService) throws InterruptedException {
+        HelloWorldService helloWorldService = new HelloWorldService(/*anotherService*/);
+        helloWorldService.setTheWords("Hello World");
+        return helloWorldService;
+    }
 }

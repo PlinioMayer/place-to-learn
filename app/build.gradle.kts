@@ -8,8 +8,7 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
-    application
-    // java
+    war
 }
 
 repositories {
@@ -28,16 +27,14 @@ dependencies {
     implementation("com.h2database:h2:2.1.210")
     implementation("org.hibernate:hibernate-core:5.6.7.Final")
 
-    // Use JUnit Jupiter for testing.
+    // Spring web mvc
+    implementation("org.springframework:spring-webmvc:5.3.17")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.2")
+    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
+
+
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-
-    // This dependency is used by the application.
-    implementation("com.google.guava:guava:30.1.1-jre")
-}
-
-application {
-    // Define the main class for the application.
-    mainClass.set("com.placetolearn.App")
+    testImplementation("javax.servlet:javax.servlet-api:4.0.1")
 }
 
 tasks.named<Test>("test") {

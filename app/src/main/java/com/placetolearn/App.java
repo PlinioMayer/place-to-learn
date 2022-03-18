@@ -3,16 +3,26 @@
  */
 package com.placetolearn;
 
-import com.placetolearn.service.HelloWorldService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-public class App {
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
+
+@Configuration
+@ComponentScan
+@EnableWebMvc
+public class App implements WebApplicationInitializer {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("pesadelo.xml"/*, "repositories.xml"*/);
+//        ApplicationContext context = new ClassPathXmlApplicationContext("pesadelo.xml"/*, "repositories.xml"*/);
 //        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class, RepositoriesConfig.class);
-        HelloWorldService helloWorldService = context.getBean("helloWorldService", HelloWorldService.class);
-        helloWorldService.sayTheWords();
+//        HelloWorldService helloWorldService = context.getBean("helloWorldService", HelloWorldService.class);
+//        helloWorldService.sayTheWords();
 
 //        MessageRepository messageRepository = context.getBean("messageRepository", MessageRepository.class);
 //        System.out.println(messageRepository.findAll().size());
@@ -20,5 +30,18 @@ public class App {
 //        message.setMessage("Hello World");
 //        messageRepository.save(message);
 //        System.out.println(messageRepository.findAll().size());
+    }
+
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        // Load Spring web application configuration
+        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+        context.register(App.class);
+
+        // Create and register the DispatcherServlet
+        DispatcherServlet servlet = new DispatcherServlet(context);
+        ServletRegistration.Dynamic registration = servletContext.addServlet("app", servlet);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
     }
 }
